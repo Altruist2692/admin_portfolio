@@ -1,98 +1,137 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Post Assignment</h2>
+    <h2>Awards/Certificates</h2>
     <ol class="breadcrumb">
       <li>
         <a href="#">Home</a>
       </li>
-      <li>
-        <a>Staff</a>
-      </li>
       <li class="active">
-        <strong>Post Assignment</strong>
+        <strong>Awards/Certificates</strong>
       </li>
     </ol>
   </div>
   <div class="col-lg-2">
-
   </div>
 </div>
-<div class="wrapper wrapper-content animated fadeIn">
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-5">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="ibox float-e-margins">
+      </div>
+    </div>
+    <div class="col-lg-4">
+    </div>
+  </div>
   <div class="row">
     <div class="col-lg-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>DragDrop Assignment</h5>
-          <div class="ibox-tools">
-            <a class="collapse-link">
-              <i class="fa fa-chevron-up"></i>
-            </a>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-wrench"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li>
-                <a href="#">Config option 1</a>
-              </li>
-              <li>
-                <a href="#">Config option 2</a>
-              </li>
-            </ul>
-            <a class="close-link">
-              <i class="fa fa-times"></i>
-            </a>
-          </div>
+          <h5>Add your Awards/Certificates Info Here</h5>
         </div>
         <div class="ibox-content">
-          <form id="my-awesome-dropzone" class="dropzone" action="#" method="post" enctype="multipart/form-data">
-            <div class="dropzone-previews"></div>
-            <button type="submit" class="btn btn-primary pull-right">Submit this assignment!</button>
-          </form>
-          <div>
+          <form method="get" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Awards/Certificates Name</label>
+              <div class="col-sm-10"><input type="text" class="form-control"></div>
+            </div>
 
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Organization Name</label>
+              <div class="col-sm-10"><input type="text" class="form-control"></div>
+            </div>
+
+            <div class="form-group" id="data_3">
+              <label class="col-sm-2 control-label">Year</label>
+              <div class="col-sm-10">
+                <div class="input-group date">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" value="10/11/2013">
+                </div>
+              </div>
+            </div>
+
+            <div class="hr-line-dashed"></div>
+            <div class="form-group">
+              <div class="col-sm-4 col-sm-offset-2">
+                <button class="btn btn-white" type="submit">Cancel</button>
+                <button class="btn btn-primary" type="submit">Save changes</button>
+              </div>
+            </div>
+          </form>
+          <div class="hr-line-dashed"></div>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Number </th>
+                <th>Name </th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>001</td>
+                <td>Award-1</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Award-2</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Award-3</td>
+              </tr>
+              <tr>
+                <td>004</td>
+                <td>Award-4</td>
+              </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>
 
+
 <% content_for :javascript do %>
-
     <script type="text/javascript">
+        $(document).ready(function() {
+            $('.i-checks').iCheck({
+                checkboxClass: 'icheckbox_square-green',
+                radioClass: 'iradio_square-green'
+            });
 
+            $('#data_3 .input-group.date').datepicker({
+                startView: 2,
+                todayBtn: "linked",
+                keyboardNavigation: false,
+                forceParse: false,
+                autoclose: true
+            });
 
-        $(function() {
+            var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, { color: '#1AB394' });
+            $('.summernote').summernote();
 
-            Dropzone.options.myAwesomeDropzone = {
+            var edit = function () {
+                $('.click2edit').summernote({ focus: true });
+            };
 
-                autoProcessQueue: false,
-                parallelUploads: 100,
-                maxFiles: 100,
-                paramName: "files",
+            $("#edit").click(function () {
+                $('.click2edit').summernote({ focus: true });
+            });
 
-                // Dropzone settings
-                init: function () {
-                    var myDropzone = this;
-
-                    this.element.querySelector("button[type=submit]").addEventListener("click", function (e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        myDropzone.processQueue();
-                    });
-                    this.on("sendingmultiple", function () {
-                    });
-                    this.on("successmultiple", function (files, response) {
-                    });
-                    this.on("errormultiple", function (files, response) {
-                    });
-                }
-
-            }
+            $("#save").click(function () {
+                var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+                $('.click2edit').destroy();
+            });
 
         });
-
     </script>
-
 <% end %>
+
+
