@@ -9,42 +9,33 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                         <span class="clear">
                             <span class="block m-t-xs">
-                                <strong class="font-bold">Dev Daxesh</strong>
-                            </span> <span class="text-muted text-xs block">Programmer<b class="caret"></b></span>
+                                <strong class="font-bold">Nishant Upadhyay</strong>
+                            </span> <span class="text-muted text-xs block">Admin</span>
                         </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                        <li><%= link_to 'Profile', staff_profile_path %>
-                        </li>
-                        <li><%= link_to 'Apply Leave',  staff_apply_leave_path  %>
-                        </li>
-                        <li><%= link_to 'Payslip',  staff_get_payslip_path  %>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="">Logout</a>
-                        </li>
-                    </ul>
                 </div>
                 <div class="logo-element">
-                    IN+
+                    NU+
                 </div>
             </li>
             <li class="<%= is_active_controller('dashboards') %>">
-                <a href=""><i class="fa fa-th-large"></i> <span class="nav-label">Student Section</span> <span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level <%= is_active_controller('dashboards') %>">
-                    <li class="<%= is_active_action('dashboard_1') %>"><%= link_to "Send Message",  staff_send_message_path  %></li>
-                    <li class="<%= is_active_action('dashboard_2') %>"><%= link_to "Post Assignment", staff_post_assignment_path %></li>
-                    <li class="<%= is_active_action('dashboard_3') %>"><%= link_to "Check Attendance",  staff_check_attendance_path  %></li>
-                </ul>
+                <a href="/admin/profile"><i class="fa fa-th-large"></i> <span class="nav-label">Profile</span></a>
             </li>
             <li class="<%= is_active_controller('graphs') %>">
-                <a href="#"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Academics</span><span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level is_active_controller('graphs')">
-                    <li class="<%= is_active_action('flot') %>"><%= link_to "Attendance",  staff_enter_attendance_path  %></li>
-                    <li class="<%= is_active_action('morris') %>"><%= link_to "Test Marks",  staff_enter_marks_path %></li>
-                </ul>
+                <a href="/admin/skills"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Skills</span></a>
+            </li>
+            <li class="<%= is_active_controller('graphs') %>">
+              <a href="/admin/tools"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Tools</span></a>
+            </li>
+            <li class="<%= is_active_controller('graphs') %>">
+              <a href="/admin/experiances"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Experience</span></a>
+            </li>
+            <li class="<%= is_active_controller('graphs') %>">
+              <a href="/admin/educations"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Education</span></a>
+            </li>
+            <li class="<%= is_active_controller('graphs') %>">
+              <a href="/admin/awards"><i class="fa fa-bar-chart-o"></i> <span class="nav-label">Awards/Certificates</span></a>
             </li>
         </ul>
-
     </div>
 </nav>
