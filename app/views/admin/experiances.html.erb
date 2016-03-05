@@ -1,15 +1,12 @@
 <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
-    <h2>Test Marks</h2>
+    <h2>Experiance</h2>
     <ol class="breadcrumb">
       <li>
         <a href="#">Home</a>
       </li>
-      <li>
-        <a>Staff</a>
-      </li>
       <li class="active">
-        <strong>Marks</strong>
+        <strong>Experiance</strong>
       </li>
     </ol>
   </div>
@@ -33,93 +30,58 @@
     <div class="col-lg-12">
       <div class="ibox float-e-margins">
         <div class="ibox-title">
-          <h5>Student Attendance Form <small>Select Class and Date</small></h5>
-          <div class="ibox-tools">
-            <a class="collapse-link">
-              <i class="fa fa-chevron-up"></i>
-            </a>
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-              <i class="fa fa-wrench"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-user">
-              <li>
-                <a href="#">Config option 1</a>
-              </li>
-              <li>
-                <a href="#">Config option 2</a>
-              </li>
-            </ul>
-            <a class="close-link">
-              <i class="fa fa-times"></i>
-            </a>
-          </div>
+          <h5>Add your Experiance Info Here</h5>
         </div>
         <div class="ibox-content">
           <form method="get" class="form-horizontal">
             <div class="form-group">
-              <label class="col-sm-2 control-label">Select Class</label>
+              <label class="col-sm-2 control-label">Job Title</label>
+              <div class="col-sm-10"><input type="text" class="form-control"></div>
+            </div>
 
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Company Name</label>
+              <div class="col-sm-10"><input type="text" class="form-control"></div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-2 control-label">Current</label>
+              <div class="col-sm-10"><input type="checkbox" class="js-switch" checked /></div>
+            </div>
+
+            <div class="form-group" id="data_5">
+              <label class="col-sm-2 control-label">Duration</label>
               <div class="col-sm-10">
-                <select class="form-control m-b" name="account">
-                  <option>class 1</option>
-                  <option>class 2</option>
-                  <option>class 3</option>
-                  <option>class 4</option>
-                </select>
+                <div class="input-daterange input-group" id="datepicker">
+                  <input type="text" class="input-sm form-control" name="start" value="05/14/2014" />
+                  <span class="input-group-addon">to</span>
+                  <input type="text" class="input-sm form-control" name="end" value="05/22/2014" />
+                </div>
               </div>
             </div>
             <div class="form-group">
-              <label class="col-sm-2 control-label">Select Test</label>
-
+              <label class="col-sm-2 control-label">Short Description</label>
               <div class="col-sm-10">
-                <select class="form-control m-b" name="account">
-                  <option>class 1</option>
-                  <option>class 2</option>
-                  <option>class 3</option>
-                  <option>class 4</option>
-                </select>
+                <div class="ibox-content no-padding">
+
+                  <div class="summernote">
+                    <h3>Lorem Ipsum is simply</h3>
+                    dummy text of the printing and typesetting industry. <strong>Lorem Ipsum has been the industry's</strong> standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
+                    typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                    <br />
+                    <br />
+                    <ul>
+                      <li>Remaining essentially unchanged</li>
+                      <li>Make a type specimen book</li>
+                      <li>Unknown printer</li>
+                    </ul>
+                  </div>
+
+                </div>
               </div>
             </div>
             <div class="hr-line-dashed"></div>
-            <div class="table-responsive">
-              <table class="table table-striped">
-                <thead>
-                <tr>
-
-                  <th></th>
-                  <th>Number </th>
-                  <th>Name </th>
-                  <th>Marks</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td><input type="checkbox" checked class="i-checks" name="input[]"></td>
-                  <td>001</td>
-                  <td>Student Name1</td>
-                  <td><input type="text" class="form-control" style="width:60px"></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                  <td>002</td>
-                  <td>Student Name2</td>
-                  <td><input type="text" class="form-control" style="width:60px"></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                  <td>003</td>
-                  <td>Student Name3</td>
-                  <td><input type="text" class="form-control" style="width:60px"></td>
-                </tr>
-                <tr>
-                  <td><input type="checkbox" class="i-checks" name="input[]"></td>
-                  <td>004</td>
-                  <td>Student Name4</td>
-                  <td><input type="text" class="form-control" style="width:60px"></td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
             <div class="form-group">
               <div class="col-sm-4 col-sm-offset-2">
                 <button class="btn btn-white" type="submit">Cancel</button>
@@ -141,12 +103,27 @@
                 checkboxClass: 'icheckbox_square-green',
                 radioClass: 'iradio_square-green'
             });
-            $('#data_1 .input-group.date').datepicker({
-                todayBtn: "linked",
+
+            $('#data_5 .input-daterange').datepicker({
                 keyboardNavigation: false,
                 forceParse: false,
-                calendarWeeks: true,
                 autoclose: true
+            });
+            var elem = document.querySelector('.js-switch');
+            var switchery = new Switchery(elem, { color: '#1AB394' });
+            $('.summernote').summernote();
+
+            var edit = function () {
+                $('.click2edit').summernote({ focus: true });
+            };
+
+            $("#edit").click(function () {
+                $('.click2edit').summernote({ focus: true });
+            });
+
+            $("#save").click(function () {
+                var aHTML = $('.click2edit').code(); //save HTML If you need(aHTML: array).
+                $('.click2edit').destroy();
             });
 
         });
